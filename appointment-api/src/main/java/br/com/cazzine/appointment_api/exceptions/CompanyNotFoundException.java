@@ -1,7 +1,7 @@
 package br.com.cazzine.appointment_api.exceptions;
 
-public class CompanyNotFound extends RuntimeException{
-    public CompanyNotFound(String message) {
+public class CompanyNotFoundException extends RuntimeException{
+    public CompanyNotFoundException(String message) {
         super(message);
     }
 }
