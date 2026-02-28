@@ -1,6 +1,6 @@
 # 📅 Appointment API (SaaS de Agendamentos)
 
-![Java](https://img.shields.io/badge/Java-21-orange?style=for-the-badge&logo=java)
+![Java](https://img.shields.io/badge/Java-25-orange?style=for-the-badge&logo=java)
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.2+-6DB33F?style=for-the-badge&logo=spring-boot)
 ![H2 Database](https://img.shields.io/badge/H2_Database-Lightweight-blue?style=for-the-badge)
 
@@ -30,4 +30,4 @@ O projeto foi construído focando nos padrões de mercado e arquitetura limpa:
 
 1. Clone o repositório:
 ```bash
-git clone [https://github.com/SEU_USUARIO/appointment-api.git](https://github.com/SEU_USUARIO/appointment-api.git)
+git clone https://github.com/GustavoCazzine/appointment-api.git
