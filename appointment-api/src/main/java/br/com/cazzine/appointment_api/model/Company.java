@@ -3,6 +3,9 @@ package br.com.cazzine.appointment_api.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 public class Company {
     @Id
@@ -12,6 +15,9 @@ public class Company {
     private String name;
     private String cnpj;
     private String phone;
+
+    @OneToMany(mappedBy = "company")
+    private List<Professional> professionals = new ArrayList<>();
 
     public Company() {
     }
@@ -52,5 +58,13 @@ public class Company {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public List<Professional> getProfessionals() {
+        return professionals;
+    }
+
+    public void setProfessionals(List<Professional> professionals) {
+        this.professionals = professionals;
     }
 }
