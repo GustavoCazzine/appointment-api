@@ -6,6 +6,7 @@ import br.com.cazzine.appointment_api.model.Company;
 import br.com.cazzine.appointment_api.repository.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.util.List;
 
