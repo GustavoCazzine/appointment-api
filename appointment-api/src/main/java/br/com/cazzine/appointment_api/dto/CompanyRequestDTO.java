@@ -14,10 +14,10 @@ public class CompanyRequestDTO {
     public CompanyRequestDTO() {
     }
 
-    public CompanyRequestDTO(String name, String phone, String cnpj) {
+    public CompanyRequestDTO(String name, String cnpj,  String phone) {
         this.name = name;
-        this.phone = phone;
         this.cnpj = cnpj;
+        this.phone = phone;
     }
 
     public String getName() {

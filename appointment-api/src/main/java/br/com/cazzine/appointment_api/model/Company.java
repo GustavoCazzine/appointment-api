@@ -22,10 +22,10 @@ public class Company {
     public Company() {
     }
 
-    public Company(String cnpj, String phone, String name) {
+    public Company(String name, String cnpj, String phone) {
+        this.name = name;
         this.cnpj = cnpj;
         this.phone = phone;
-        this.name = name;
     }
 
     public Integer getId() {
