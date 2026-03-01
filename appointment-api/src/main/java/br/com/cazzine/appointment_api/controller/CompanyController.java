@@ -1,6 +1,7 @@
 package br.com.cazzine.appointment_api.controller;
 
 import br.com.cazzine.appointment_api.dto.CompanyRequestDTO;
+import br.com.cazzine.appointment_api.dto.CompanyResponseDTO;
 import br.com.cazzine.appointment_api.model.Company;
 import br.com.cazzine.appointment_api.service.CompanyService;
 import jakarta.validation.Valid;
@@ -21,12 +22,32 @@ public class CompanyController {
     }
 
     @GetMapping
-    public List<Company> findAllCompany(){
-        return companyService.findAll();
+    public List<CompanyResponseDTO> findAllCompany(){
+        List<Company> companies = companyService.findAll();
+
+        return companies.stream()
+                .map(company -> new CompanyResponseDTO(
+                        company.getId(),
+                        company.getName(),
+                        company.getCnpj(),
+                        company.getPhone()
+                ))
+                .toList();
     }
 
     @GetMapping("/{id}")
-    public Company companyFindById(@PathVariable Integer id){
-        return companyService.findById(id);
+    public CompanyResponseDTO companyFindById(@PathVariable Integer id){
+        Company company = companyService.findById(id);
+        return new CompanyResponseDTO(
+                company.getId(),
+                company.getName(),
+                company.getCnpj(),
+                company.getPhone()
+        );
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteCompany(@PathVariable Integer id){
+        companyService.deleteCompany(id);
     }
 }

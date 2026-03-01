@@ -5,10 +5,9 @@ import br.com.cazzine.appointment_api.dto.ProfessionalResponseDTO;
 import br.com.cazzine.appointment_api.model.Professional;
 import br.com.cazzine.appointment_api.service.ProfessionalService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/professionals")
@@ -26,5 +25,34 @@ public class ProfessionalController {
             infNewProfessional.getEmail(),
             infNewProfessional.getCompany().getName()
         );
+    }
+
+    @GetMapping
+    public List<ProfessionalResponseDTO> getAllProfessionals(){
+        List<Professional> professionals = professionalService.getAllProfessional();
+        return professionals.stream()
+                .map(professional ->new ProfessionalResponseDTO(
+                        professional.getId(),
+                        professional.getName(),
+                        professional.getEmail(),
+                        professional.getCompany().getName()
+                ))
+                .toList();
+    }
+
+    @GetMapping("/{id}")
+    public ProfessionalResponseDTO findById(@PathVariable Integer id){
+        Professional professional = professionalService.findById(id);
+        return new ProfessionalResponseDTO(
+                professional.getId(),
+                professional.getName(),
+                professional.getEmail(),
+                professional.getCompany().getName()
+        );
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable Integer id) {
+        professionalService.deleteById(id);
     }
 }

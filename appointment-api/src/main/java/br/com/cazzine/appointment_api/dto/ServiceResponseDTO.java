@@ -1,8 +1,5 @@
 package br.com.cazzine.appointment_api.dto;
 
-import br.com.cazzine.appointment_api.model.Company;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
@@ -11,14 +8,14 @@ public class ServiceResponseDTO {
     private String description;
     private BigDecimal price;
     private Integer durationInMinutes;
-    private Company company;
+    private String companyName;
 
-    public ServiceResponseDTO(Integer id, String description, BigDecimal price, Integer durationInMinutes, Company company) {
+    public ServiceResponseDTO(Integer id, String description, BigDecimal price, Integer durationInMinutes, String companyName) {
         this.id = id;
         this.description = description;
         this.price = price;
         this.durationInMinutes = durationInMinutes;
-        this.company = company;
+        this.companyName = companyName;
     }
 
     public ServiceResponseDTO() {
@@ -56,11 +53,11 @@ public class ServiceResponseDTO {
         this.durationInMinutes = durationInMinutes;
     }
 
-    public Company getCompany() {
-        return company;
+    public String getCompanyName() {
+        return companyName;
     }
 
-    public void setCompany(Company company) {
-        this.company = company;
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 }

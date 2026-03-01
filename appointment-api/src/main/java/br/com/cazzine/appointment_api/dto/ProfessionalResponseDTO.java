@@ -1,6 +1,5 @@
 package br.com.cazzine.appointment_api.dto;
 
-import br.com.cazzine.appointment_api.model.Company;
 
 public class ProfessionalResponseDTO {
     private Integer id;

@@ -1,8 +1,5 @@
 package br.com.cazzine.appointment_api.dto;
 
-import br.com.cazzine.appointment_api.model.Company;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
