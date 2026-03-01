@@ -19,6 +19,8 @@ public class Company {
     @OneToMany(mappedBy = "company")
     private List<Professional> professionals = new ArrayList<>();
 
+    @OneToMany(mappedBy= "company")
+    private List<ServiceItem> services = new ArrayList<>();
     public Company() {
     }
 
