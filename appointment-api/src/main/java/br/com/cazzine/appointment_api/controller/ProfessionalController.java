@@ -4,6 +4,7 @@ import br.com.cazzine.appointment_api.dto.ProfessionalRequestDTO;
 import br.com.cazzine.appointment_api.dto.ProfessionalResponseDTO;
 import br.com.cazzine.appointment_api.model.Professional;
 import br.com.cazzine.appointment_api.service.ProfessionalService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +17,7 @@ public class ProfessionalController {
     ProfessionalService professionalService;
 
     @PostMapping
-    public ProfessionalResponseDTO createProfessional(@RequestBody  ProfessionalRequestDTO newProfessional){
+    public ProfessionalResponseDTO createProfessional(@Valid @RequestBody  ProfessionalRequestDTO newProfessional){
         Professional infNewProfessional = professionalService.createProfessional(newProfessional);
 
         return new ProfessionalResponseDTO(

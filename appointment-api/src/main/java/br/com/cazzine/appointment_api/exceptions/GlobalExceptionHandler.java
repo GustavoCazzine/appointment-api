@@ -18,9 +18,16 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
     }
 
-    @ExceptionHandler(ServiceNotFoundException.class)
-    public ResponseEntity<String> handleServiceNotFound(ServiceNotFoundException ex){
+
+    @ExceptionHandler(DoubleBookingException.class)
+    public ResponseEntity<String> handleDoubleBooking(DoubleBookingException ex){
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(ex.getMessage());
+    }
+
+    @ExceptionHandler(AppointmentNotFoundException.class)
+    public ResponseEntity<String> handleAppointmentNotFound(AppointmentNotFoundException ex){
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
     }
+
 
 }

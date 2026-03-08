@@ -1,5 +1,6 @@
 package br.com.cazzine.appointment_api.dto;
 
+import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -9,6 +10,7 @@ public class AppointmentRequestDTO {
     @NotBlank(message = "O NOME não pode estar em branco.")
     private String customerName;
     @NotNull(message = "A DATA não pode estar em branco.")
+    @Future(message = "A data do agendamento deve ser no futuro.")
     private LocalDateTime appointmentDate;
     @NotNull(message = "O ID da empresa não pode estar em branco.")
     private Integer companyId;

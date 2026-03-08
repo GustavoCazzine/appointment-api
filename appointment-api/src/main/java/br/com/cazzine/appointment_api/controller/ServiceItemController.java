@@ -4,6 +4,7 @@ import br.com.cazzine.appointment_api.dto.ServiceItemRequestDTO;
 import br.com.cazzine.appointment_api.dto.ServiceResponseDTO;
 import br.com.cazzine.appointment_api.model.ServiceItem;
 import br.com.cazzine.appointment_api.service.ServiceItemService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +17,7 @@ public class ServiceItemController {
     ServiceItemService serviceItemService;
 
     @PostMapping
-    public ServiceItem createServiceItem(@RequestBody ServiceItemRequestDTO newServiceItem){
+    public ServiceItem createServiceItem(@Valid  @RequestBody ServiceItemRequestDTO newServiceItem){
         return serviceItemService.createServiceItem(newServiceItem);
     }
 
